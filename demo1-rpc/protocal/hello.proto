@@ -1,0 +1,8 @@
+//protoc ./*.proto --go_out=./
+syntax = "proto3";
+
+package go_protoc;
+
+message String {
+    string value = 1;
+}

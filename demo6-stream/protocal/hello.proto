@@ -1,0 +1,18 @@
+//protoc --go_out=plugins=grpc:. hello.proto
+syntax = "proto3";
+
+package go_protoc;
+
+message Request {
+    string request = 1;
+}
+
+message Result {
+    string reply = 1;
+}
+
+service HelloServer {
+    rpc GetResult1 (Request) returns (stream Result) {}
+    rpc GetResult2 (stream Request) returns (Result) {}
+    rpc GetResult3 (stream Request) returns (stream Result) {}
+}
